@@ -1,11 +1,16 @@
-from app import create_app
-from app.mail import send_test_email
+from app import create_app, mail
+from flask_mail import Message
 
 app = create_app()
 
 with app.app_context():
     try:
-        send_test_email()
+        msg = Message(
+            subject="Superheroes API",
+            recipients=["test@example.com"],
+            body="API is running successfully!"
+        )
+        mail.send(msg)
     except Exception:
         pass
 
