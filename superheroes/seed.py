@@ -1,23 +1,44 @@
-from app import create_app, db
+from app import db
 from app.models import Hero, Power, HeroPower
 
-app = create_app()
+# Drop all existing data (optional, for fresh start)
+db.drop_all()
+db.create_all()
 
-with app.app_context():
-    db.drop_all()
-    db.create_all()
+# ------------------- Heroes -------------------
+heroes = [
+    Hero(name="Peter Parker", super_name="Spider-Man"),
+    Hero(name="Bruce Wayne", super_name="Batman"),
+    Hero(name="Clark Kent", super_name="Superman"),
+    Hero(name="Diana Prince", super_name="Wonder Woman")
+]
 
-    hero = Hero(name="Kamala Khan", super_name="Ms. Marvel")
-    power = Power(
-        name="flight",
-        description="gives the wielder the ability to fly through the skies at supersonic speed"
-    )
+# ------------------- Powers -------------------
+powers = [
+    Power(name="Web-Slinging", description="Can shoot webs and swing between buildings"),
+    Power(name="Martial Arts", description="Expert hand-to-hand combat skills"),
+    Power(name="Super Strength", description="Incredible physical strength"),
+    Power(name="Flight", description="Can fly through the air at high speeds"),
+]
 
-    db.session.add_all([hero, power])
-    db.session.commit()
+# ---------------- Hero-Power Associations ----------------
+hero_powers = [
+    HeroPower(hero=heroes[0], power=powers[0], strength="Strong"),
+    HeroPower(hero=heroes[1], power=powers[1], strength="Average"),
+    HeroPower(hero=heroes[2], power=powers[2], strength="Very Strong"),
+    HeroPower(hero=heroes[2], power=powers[3], strength="Very Strong"),
+    HeroPower(hero=heroes[3], power=powers[2], strength="Strong"),
+]
 
-    hp = HeroPower(strength="Strong", hero_id=hero.id, power_id=power.id)
+# Add all to session
+for hero in heroes:
+    db.session.add(hero)
+for power in powers:
+    db.session.add(power)
+for hp in hero_powers:
     db.session.add(hp)
-    db.session.commit()
 
-    print("Database seeded!")
+# Commit to database
+db.session.commit()
+
+print("Database seeded successfully!")
