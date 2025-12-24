@@ -9,34 +9,22 @@ This project allows you to:
 -Create a hero-power association with a strength rating.
 
 ## Technologies Used
-
-Python 3.x
-
-Flask
-
-Flask-SQLAlchemy
-
-SQLite 
-
-JSON for data transfer
+-Python 
+-Flask-SQLAlchemy
+-SQLite 
 
 
-2. Create and activate a virtual environment
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On Mac/Linux
-source venv/bin/activate
 
-3. Install dependencies
+1. Install dependencies
 pip install -r requirements.txt
 
-4. Set up the database
+2. Set up the database
 flask db init       # Initialize migrations
 flask db migrate    # Create migration scripts
 flask db upgrade    # Apply migrations to the database
 
-5. Run the server
+
+3. Run the server
 flask run
 
 
@@ -44,14 +32,12 @@ By default, the server will run at:
 
 http://127.0.0.1:5000/
 
-🛣️ Available API Endpoints
-Heroes
-
+-heroes
 GET /heroes – Get a list of all heroes
 
 GET /heroes/<id> – Get a specific hero by ID
 
-Powers
+-Powers
 
 GET /powers – Get a list of all powers
 
@@ -59,31 +45,28 @@ GET /powers/<id> – Get a specific power by ID
 
 PATCH /powers/<id> – Update a power’s description
 
-Hero Powers
+-Hero Powers
 
 POST /hero_powers – Create a hero-power association
 
-📦 Sample Requests
+## Sample Requests
+-Get all heroes
+-curl http://127.0.0.1:5000/heroes
 
-Get all heroes
-
-curl http://127.0.0.1:5000/heroes
-
-
-Update a power
+# Update a power
 
 curl -X PATCH -H "Content-Type: application/json" \
 -d '{"description":"New power description"}' \
 http://127.0.0.1:5000/powers/1
 
 
-Create a hero-power association
+# Create a hero-power association
 
 curl -X POST -H "Content-Type: application/json" \
 -d '{"hero_id":1,"power_id":2,"strength":"Strong"}' \
 http://127.0.0.1:5000/hero_powers
 
-⚡ Notes
+# Notes
 
 Ensure the database is migrated before running the server.
 
