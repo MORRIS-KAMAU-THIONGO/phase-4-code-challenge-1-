@@ -1,7 +1,7 @@
 ## Superheroes API
-
 A Flask-based REST API for managing superheroes, their powers, and the relationships between them.
 
+## FUNCTIONS 
 This project allows you to:
 -List all heroes or a single hero.
 -List all powers or a single power.
@@ -14,47 +14,23 @@ This project allows you to:
 -SQLite 
 
 
-
+## REQUIREMENTS
 1. Install dependencies
 pip install -r requirements.txt
 
 2. Set up the database
-flask db init       # Initialize migrations
-flask db migrate    # Create migration scripts
-flask db upgrade    # Apply migrations to the database
+flask db init      
+flask db migrate   
+flask db upgrade    
 
 
 3. Run the server
 flask run
-
-
 By default, the server will run at:
-
 http://127.0.0.1:5000/
 
-
-
 ## Sample Requests
--Get all heroes
--curl http://127.0.0.1:5000/heroes
+-Get all heroes -curl http://127.0.0.1:5000/heroes
 
-# Update a power
-
-curl -X PATCH -H "Content-Type: application/json" \
--d '{"description":"New power description"}' \
-http://127.0.0.1:5000/powers/1
-
-
-# Create a hero-power association
-
-curl -X POST -H "Content-Type: application/json" \
--d '{"hero_id":1,"power_id":2,"strength":"Strong"}' \
-http://127.0.0.1:5000/hero_powers
-
-# Notes
-
-Ensure the database is migrated before running the server.
-
-The API returns JSON responses for all endpoints.
-
-Error handling is included for invalid requests or missing records.
+## AUTHOR 
+Morris Kamau 
