@@ -32,22 +32,7 @@ By default, the server will run at:
 
 http://127.0.0.1:5000/
 
--heroes
-GET /heroes – Get a list of all heroes
 
-GET /heroes/<id> – Get a specific hero by ID
-
--Powers
-
-GET /powers – Get a list of all powers
-
-GET /powers/<id> – Get a specific power by ID
-
-PATCH /powers/<id> – Update a power’s description
-
--Hero Powers
-
-POST /hero_powers – Create a hero-power association
 
 ## Sample Requests
 -Get all heroes
