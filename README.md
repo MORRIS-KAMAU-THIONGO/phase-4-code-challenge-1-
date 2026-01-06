@@ -15,22 +15,14 @@ This project allows you to:
 
 
 ## REQUIREMENTS
-1. Install dependencies
-pip install -r requirements.txt
-
-2. Set up the database
+1. Navigate to superheroes api
+2. Install dependencies
+3. Set up the database
 flask db init      
 flask db migrate   
 flask db upgrade    
-
-
-3. Run the server
+4. Run the server
 flask run
-By default, the server will run at:
-http://127.0.0.1:5000/
-
-## Sample Requests
--Get all heroes -curl http://127.0.0.1:5000/heroes
 
 ## AUTHOR 
 Morris Kamau 
